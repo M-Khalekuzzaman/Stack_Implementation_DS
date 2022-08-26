@@ -1,24 +1,24 @@
 #include<bits/stdc++.h>
 using namespace std;
-class Node
+template <typename N> class Node
 {
 public:
-    int data;
+    N data;
     Node *Next;
     Node *Prev;
 
     //Constructor declare
-    Node(int data)
+    Node(N data)
     {
         this -> data = data;
         this -> Prev = NULL;
         this -> Next = NULL;
     }
 };
-class Stack
+template <typename S> class Stack
 {
-    Node *head;
-    Node *top;
+    Node <S> *head;
+    Node <S> *top;
     int count;
 public:
     Stack()
@@ -29,9 +29,9 @@ public:
     }
 
     //PUSH
-    void push(int val)
+    void push(S val)
     {
-        Node *newNode = new Node(val);
+        Node <S> *newNode = new Node<S>(val);
         if(head == NULL)
         {
             head = top = newNode;
@@ -44,10 +44,10 @@ public:
         count++;
     }
     //POP
-    int pop(void)
+    S pop(void)
     {
-        Node *delNode = top;
-        int check = -1;
+        Node <S> *delNode = top;
+        S check;
         if(head == NULL)
         {
             cout<<"Stack Underflow"<<endl;
@@ -80,14 +80,16 @@ public:
         return count;
     }
     //TOP
-    int Top(void)
+    S Top(void)
     {
+        S chk;
         if(head == NULL)
         {
             cout<<"There is no value in the top(Stack Underflow)"<<endl;
-            return -1;
         }
-        else return top->data;
+        else chk = top->data;
+
+        return chk;
     }
 };
 

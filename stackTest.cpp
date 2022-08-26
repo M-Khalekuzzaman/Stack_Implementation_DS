@@ -1,24 +1,29 @@
 #include<bits/stdc++.h>
-#include"MYSTACKHEADER.h"
+#include"MYSTACK.h"
 using namespace std;
 int main()
 {
-    Stack st;
-    st.push("Kaochar");
-    st.push("Khalekuzzaman");
-    st.push("Shakib");
-    st.push("Sha-alom");
-    st.push("Anower");
+    Stack<pair<int,char>>st;
+
+    st.push(make_pair(1,'a'));
+    st.push(make_pair(2,'b'));
+    st.push(make_pair(3,'c'));
+    cout<<st.size()<<endl;
     while(! st.empty())
     {
-        cout<<st.pop()<<endl;
+        pair <int,char> chk;
+        chk = st.pop();
+        //cout<<st.pop()<<endl;
+        cout<<chk.first<<" "<<chk.second<<endl;
     }
     cout<<endl<<st.size()<<endl;
-    if(st.empty() == true)
+    if(! st.empty())
     {
-        cout<<"NOT EMPTY"<<endl;
+        pair <int,char> chk;
+        chk = st.Top();
+        cout<<chk.first<<" "<<chk.second<<endl;
     }
-    else cout<<"Stack is Empty"<<endl;
+
 
 
 
